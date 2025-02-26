@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Steganography</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+        }
+        .btn-primary {
+            background-color: #17a2b8;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #138496;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-danger:hover {
+            background-color: #bd2130;
+        }
+    </style>
+</head>
+<body class="text-center">
+    <div class="container mt-5">
+        <h1>🔐 Image Steganography</h1>
+        <p class="lead">Hide and reveal messages inside images securely.</p>
+        <a href="{{ url_for('encrypt') }}" class="btn btn-primary btn-lg m-3">Encrypt Message</a>
+        <a href="{{ url_for('decrypt') }}" class="btn btn-danger btn-lg m-3">Decrypt Message</a>
+    </div>
+</body>
+</html>

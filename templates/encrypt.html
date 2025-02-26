@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypt Message</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1f4037, #99f2c8);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 500px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+        }
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        .btn-light {
+            background-color: #e0e0e0;
+            color: #000;
+        }
+        .alert {
+            background-color: #ff5733;
+            color: #fff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">🔏 Encrypt a Message</h2>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert text-center">{{ messages[0] }}</div>
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('encrypt') }}" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label">Select an Image:</label>
+                <input type="file" name="image" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Enter Secret Message:</label>
+                <input type="text" name="message" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Set a Passcode:</label>
+                <input type="password" name="passcode" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Encrypt & Download</button>
+            <a href="{{ url_for('index') }}" class="btn btn-light w-100 mt-2">Back</a>
+        </form>
+    </div>
+</body>
+</html>
